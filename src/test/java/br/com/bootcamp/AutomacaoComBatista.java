@@ -1,3 +1,5 @@
+package br.com.bootcamp;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -10,22 +12,23 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Selenium {
+public class AutomacaoComBatista {
 
     private static WebDriver driver;
     static WebDriverWait wait;
 
     @BeforeAll
-    public static void setup(){
+    public static void setup() {
         System.setProperty("webdriver.chrome.driver", "./src/main/resources/chromedriver.exe");
         driver = new ChromeDriver();
-        wait= new WebDriverWait(driver,90);
+        wait = new WebDriverWait(driver, 90);
+        driver.manage().window().maximize();
+
     }
 
     @Test
-    public void criarUsuario(){
+    public void criarUsuario() {
         driver.get("https://automacaocombatista.herokuapp.com/users/new\n");
-        driver.manage().window().fullscreen();
         driver.findElement(By.xpath("//input[@id = 'user_name']")).sendKeys("Henrique");
         driver.findElement(By.xpath("//input[@id = 'user_lastname']")).sendKeys("Oliveira Silva");
         driver.findElement(By.xpath("//input[@id = 'user_email']")).sendKeys("hiky_silva@hotmail.com");
@@ -38,32 +41,31 @@ public class Selenium {
 
         String mensagem = driver.findElement(By.xpath("//p[@id = 'notice']")).getText();
 
-    Assertions.assertEquals("Usuário Criado com sucesso", mensagem);
+        Assertions.assertEquals("Usuário Criado com sucesso", mensagem);
 
     }
 
     @Test
-    public void radioCheckBox(){
+    public void radioCheckBox() {
         driver.get("https://automacaocombatista.herokuapp.com\n");
-        driver.manage().window().fullscreen();
-        driver.findElement(By.xpath("//a[text()='Começar Automação Web']")).click();
-        WebElement Link = driver.findElement(By.xpath("//a[text() = 'Radio e Checkbox']"));
-        wait.until(ExpectedConditions.visibilityOf(Link));
-        Link.click();
 
-        driver.findElement(By.xpath("//label [@for = 'red']")).click();
-        driver.findElement(By.xpath("//label [@for = 'blue']")).click();
-        driver.findElement(By.xpath("//label [@for = 'yellow']")).click();
-        driver.findElement(By.xpath("//label [@for = 'green']")).click();
-        driver.findElement(By.xpath("//label [@for = 'purple']")).click();
-        driver.findElement(By.xpath("//label [@for = 'grey']")).click();
-        driver.findElement(By.xpath("//label [@for = 'black']")).click();
-        driver.findElement(By.xpath("//label [@for = 'white']")).click();
+        clicarElemento("//a[text()='Começar Automação Web']");
+        clicarElemento("//a [text() = 'Busca de elementos']");
+        clicarElemento("//a[text() = 'Radio e Checkbox']");
+
+        clicarElemento("//label [@for = 'red']");
+        clicarElemento("//label [@for = 'blue']");
+        clicarElemento("//label [@for = 'yellow']");
+        clicarElemento("//label [@for = 'green']");
+        clicarElemento("//label [@for = 'purple']");
+        clicarElemento("//label [@for = 'grey']");
+        clicarElemento("//label [@for = 'black']");
+        clicarElemento("//label [@for = 'white']");
 
     }
 
     @Test
-    public void select(){
+    public void select() {
 
         driver.findElement(By.xpath("//a[text()='Busca de elementos']")).click();
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Dropdown e Select']")));
@@ -86,8 +88,15 @@ public class Selenium {
 
     }
 
+    public void clicarElemento(String xpath) {
+        WebElement element = driver.findElement(By.xpath(xpath));
+        wait.until(ExpectedConditions.visibilityOf(element));
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        element.click();
+    }
+
     @AfterAll
-    public static void fechaBrowser(){
+    public static void fechaBrowser() {
         driver.quit();
     }
 }
