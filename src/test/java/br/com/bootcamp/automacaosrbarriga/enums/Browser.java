@@ -1,6 +1,6 @@
-package br.com.bootcamp.enums;
+package br.com.bootcamp.automacaosrbarriga.enums;
 
-import br.com.bootcamp.interfaces.BrowserImp;
+import br.com.bootcamp.automacaosrbarriga.interfaces.BrowserImp;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -12,7 +12,7 @@ public enum Browser implements BrowserImp {
 
     CHROME{
         @Override
-        public WebDriver getDriver(){
+        public WebDriver getDriver() {
             System.setProperty("webdriver.chrome.driver","./chromedriver/chromedriver.exe");
             Map<String, Object> prefs = new HashMap<String, Object>();
             prefs.put("profile.default_content_setting_values.notifications", 2);
@@ -23,5 +23,3 @@ public enum Browser implements BrowserImp {
 
     };
 }
-
-

@@ -1,8 +1,9 @@
 package br.com.bootcamp.settings;
 
 import br.com.bootcamp.enums.Browser;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
+
 
 public class Hooks extends BaseTest{
 

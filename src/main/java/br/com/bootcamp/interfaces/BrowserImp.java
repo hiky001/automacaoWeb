@@ -4,5 +4,5 @@ import org.openqa.selenium.WebDriver;
 
 public interface BrowserImp {
 
-    public WebDriver getDriver();
+     WebDriver getDriver();
 }
