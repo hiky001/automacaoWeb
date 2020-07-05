@@ -9,7 +9,9 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(monochrome = true, dryRun = false, snippets = SnippetType.CAMELCASE,
         plugin = {"pretty", "json:target/cucumber.json"},
-        features = {""}, glue = {""}, tags = {"@test-web", "@app"})
+        features = {""}, glue = {"br.com.projeto.web.steps","br.com.projeto.app.steps",
+        "br.com.projeto.configuration", "br.com.projeto.commons",
+        "br.com.projeto.bean"}, tags = {"@test-web", "@app"})
 
 public class RunTest extends BaseTest {
 
