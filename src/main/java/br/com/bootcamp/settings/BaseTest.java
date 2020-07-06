@@ -13,8 +13,8 @@ public class BaseTest {
         if (webDriver != null)
             webDriver.close();
         webDriver = webApplication.getDriver();
-        webDriver.manage().window().fullscreen();
-        webDriver.get("https://www.casasbahia.com.br");
+        webDriver.manage().window().maximize();
+        webDriver.get("https://srbarriga.herokuapp.com/login");
         wait = new WebDriverWait(webDriver, 60);
     }
 

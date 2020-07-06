@@ -1,6 +1,7 @@
 package br.com.bootcamp.bean.commons;
 
 import br.com.bootcamp.settings.BaseTest;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -8,14 +9,21 @@ import org.openqa.selenium.support.ui.Select;
 
 public class SeleniumRobot extends BaseTest {
     
-/**
- * Clicar em um botão através de um JavaScriptExecutor
- * @param elemento insira o elemento que voce deseja clicar.
-  */
-
+    /**
+     * Clicar em um botão através de um JavaScriptExecutor
+     * @param elemento insira o elemento que voce deseja clicar.
+     */
     public void clicarBotaoJS(WebElement elemento){
         JavascriptExecutor js = (JavascriptExecutor) webDriver;
         js.executeScript("arguments[0].click()", elemento);
+    }
+
+    /**
+     * Clica em um botão através do texto
+     * @param texto insira o texto a ser clicado
+     */
+    public void clicaBotaoPorTexto (String texto) {
+        webDriver.findElement(By.xpath("//*[text()='" + texto + "']"));
     }
 
     /**
@@ -23,7 +31,6 @@ public class SeleniumRobot extends BaseTest {
      * @param elemento Insira o elemento onde você deseja preencher no campo
      * @param valor Insira o valor que você deseja preencher no campo
      */
-
     public void insireTextoNoElementoJS(WebElement elemento, String valor){
         JavascriptExecutor js = (JavascriptExecutor)webDriver;
         js.executeScript("arguments[0].value='"+valor+"';", elemento);
@@ -33,7 +40,6 @@ public class SeleniumRobot extends BaseTest {
      * Marcar um checkbox através de JavaScriptExecutor
      * @param id Insira o id do elemento que você quer marcar
      */
-
     public void selecionarCheckBox(String id){
         JavascriptExecutor js = (JavascriptExecutor)webDriver;
         js.executeScript("document.getElementById('"+ id +"').checked=true;");
@@ -44,7 +50,6 @@ public class SeleniumRobot extends BaseTest {
      * @param elemento Insira o elemento que você deseja capturar
      * @retorn Retorna o valor de texto do elemento
      */
-
     public String pegarValorTexto(WebElement elemento){
         return elemento.getText();
     }
@@ -55,7 +60,6 @@ public class SeleniumRobot extends BaseTest {
      * @param esperado insira o valor do texto esperado
      * @return Retorna verdadeiro ou falso
      */
-
     public boolean validaTexto(String atual, String esperado){
         return atual.equals(esperado);
     }
@@ -64,7 +68,6 @@ public class SeleniumRobot extends BaseTest {
      * Realiza o Scroll da página até encontrar o elemento.(Obs: Elemento precisa existir na página)
      * @param elemento
      */
-
     public void scrollAteOElementoJS(WebElement elemento){
         JavascriptExecutor js = (JavascriptExecutor)webDriver;
         js.executeScript("arguments[0].scrollIntoView();", elemento);
@@ -73,7 +76,6 @@ public class SeleniumRobot extends BaseTest {
     /**
      * Realiza Scroll ate o fim da página
      */
-
     public void scrollAteFimDaPaginaJS(){
         JavascriptExecutor js = (JavascriptExecutor)webDriver;
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
@@ -82,7 +84,6 @@ public class SeleniumRobot extends BaseTest {
     /**
      * Realiza Scroll ate o topo da página
      */
-
     public void scrollAteTopoDaPaginaJS(){
         JavascriptExecutor js = (JavascriptExecutor)webDriver;
         js.executeScript("window.scrollTo(0, document.body.scrollTop)");
@@ -92,7 +93,6 @@ public class SeleniumRobot extends BaseTest {
      * Espera o elemento estar clicavel na tela
      * @param elemento
      */
-
     public void esperaElementoSerClicavel(WebElement elemento){
         wait.until(ExpectedConditions.elementToBeClickable(elemento));
     }
@@ -126,7 +126,6 @@ public class SeleniumRobot extends BaseTest {
         Select lista = new Select(elemento);
         lista.selectByValue(value);
     }
-
 
 
 }

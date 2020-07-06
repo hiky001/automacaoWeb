@@ -7,11 +7,13 @@ import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(monochrome = true, dryRun = false, snippets = SnippetType.CAMELCASE,
+@CucumberOptions(monochrome = true,
+        dryRun = false,
+        snippets = SnippetType.CAMELCASE,
         plugin = {"pretty", "json:target/cucumber.json"},
-        features = {""}, glue = {"br.com.projeto.web.steps","br.com.projeto.app.steps",
-        "br.com.projeto.configuration", "br.com.projeto.commons",
-        "br.com.projeto.bean"}, tags = {"@test-web", "@app"})
+        features = {"src/test/resources/features"},
+        glue = {"br.com.bootcamp.web.steps", "br.com.bootcamp.settings", "br.com.bootcamp.bean"},
+        tags = {"@login", "@web"})
 
 public class RunTest extends BaseTest {
 
