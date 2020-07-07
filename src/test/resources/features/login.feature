@@ -6,9 +6,15 @@
 
 Funcionalidade: Teste execucao Site Porto Seguro
 
+#  Cenario: Realizar o cadastro de usuário
+#    Dado que clico no botão "Novo usuário?"
+#    E preencho os dados de login
+#    Quando clico em "Cadastrar"
+#    Entao visualizo a tela inicial com meu usuário logado
+
   @login @web
   Cenario: Realizar login na aplicacao com usuario cadastrado
-    Dado que clico no botao "Seu Barriga"
-    E preencho os dados de login com usuário "cadastrado"
-    Quando clico em "Continuar"
+    Dado que clico no botao "Login"
+    E preencho os dados de login com usuário cadastrado
+    Quando clico em "Entrar"
     Entao visualizo a tela inicial com meu usuário logado

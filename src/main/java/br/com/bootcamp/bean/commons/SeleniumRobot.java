@@ -23,7 +23,7 @@ public class SeleniumRobot extends BaseTest {
      * @param texto insira o texto a ser clicado
      */
     public void clicaBotaoPorTexto (String texto) {
-        webDriver.findElement(By.xpath("//*[text()='" + texto + "']"));
+        webDriver.findElement(By.xpath("//*[text()='" + texto + "']")).click();
     }
 
     /**
@@ -51,6 +51,7 @@ public class SeleniumRobot extends BaseTest {
      * @retorn Retorna o valor de texto do elemento
      */
     public String pegarValorTexto(WebElement elemento){
+
         return elemento.getText();
     }
 
@@ -91,10 +92,18 @@ public class SeleniumRobot extends BaseTest {
 
     /**
      * Espera o elemento estar clicavel na tela
-     * @param elemento
+     * @param elemento para esperar ser clicável
      */
     public void esperaElementoSerClicavel(WebElement elemento){
         wait.until(ExpectedConditions.elementToBeClickable(elemento));
+    }
+
+    /**
+     * Espera o elemento ficar visível na tela
+     * @param elemento para esperar estar visivel
+     */
+    public void esperaElementoEstarVisivel(WebElement elemento){
+        wait.until(ExpectedConditions.visibilityOf(elemento));
     }
 
     /**
