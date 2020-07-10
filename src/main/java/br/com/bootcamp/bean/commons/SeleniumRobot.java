@@ -92,7 +92,7 @@ public class SeleniumRobot extends BaseTest {
 
     /**
      * Espera o elemento estar clicavel na tela
-     * @param elemento para esperar ser clicável
+     * @param elemento que se quer esperar estar clicável
      */
     public void esperaElementoSerClicavel(WebElement elemento){
         wait.until(ExpectedConditions.elementToBeClickable(elemento));
