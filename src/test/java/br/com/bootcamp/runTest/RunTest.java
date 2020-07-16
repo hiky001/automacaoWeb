@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
         plugin = {"pretty", "json:target/cucumber.json"},
         features = {"src/test/resources/features"},
         glue = {"br.com.bootcamp.web.steps", "br.com.bootcamp.settings", "br.com.bootcamp.bean"},
-        tags = {"@cadastro", "@web"})
+        tags = {"@web"})
 
 public class RunTest extends BaseTest {
 

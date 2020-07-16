@@ -21,4 +21,8 @@ public class LoginFuncionalidade extends BaseTest {
         this.seleniumRobot.insireTextoNoElementoJS(loginPage.getCampoSenha(), senha);
     }
 
+    public void clicoBotao(String texto){
+        seleniumRobot.clicaBotaoPorTexto(texto);
+    }
+
 }

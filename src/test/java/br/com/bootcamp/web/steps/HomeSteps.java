@@ -17,8 +17,7 @@ public class HomeSteps {
 
     @Dado("^que clico no botao \"([^\"]*)\"$")
     public void queClicoNoBotao(String texto) throws Throwable {
-        seleniumRobot = new SeleniumRobot();
-        seleniumRobot.clicaBotaoPorTexto(texto);
+        this.homeFuncionalidade.clicaBotao(texto);
     }
 
     @Entao("^visualizo a tela home com meu usuário logado$")

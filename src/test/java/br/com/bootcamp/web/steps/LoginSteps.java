@@ -23,7 +23,7 @@ public class LoginSteps{
 
     @Quando("^clico em \"([^\"]*)\"$")
     public void clicoEm(String texto) throws Throwable {
-        seleniumRobot.clicaBotaoPorTexto(texto);
+        this.loginFuncionalidade.clicoBotao(texto);
     }
 
 }

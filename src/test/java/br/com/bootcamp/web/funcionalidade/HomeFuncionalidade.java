@@ -17,4 +17,8 @@ public class HomeFuncionalidade extends BaseTest {
         this.seleniumRobot.esperaElementoEstarVisivel(homePages.getMensagemBemVindo());
         return this.seleniumRobot.pegarValorTexto(homePages.getMensagemBemVindo());
     }
+
+    public void clicaBotao(String texto){
+        seleniumRobot.clicaBotaoPorTexto(texto);
+    }
 }

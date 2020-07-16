@@ -8,12 +8,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BaseTest {
 
     protected static AndroidDriver driver;
+
+
     protected static WebDriver webDriver;
     protected static WebDriverWait wait;
 
     protected void initializeWebApplication(WebApplication webApplication){
-        if (webDriver != null)
-            webDriver.close();
+//        if (webDriver != null)
+//            webDriver.close();
         webDriver = webApplication.getDriver();
         webDriver.manage().window().maximize();
         webDriver.get("https://srbarriga.herokuapp.com/login");
@@ -29,5 +31,8 @@ public class BaseTest {
         webDriver.quit();
     }
 
+    public static WebDriver getWebDriver() {
+        return webDriver;
+    }
 
 }
